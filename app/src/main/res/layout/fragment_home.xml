@@ -42,7 +42,7 @@
 
     <!-- Daftar Buku -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerBooks"
+        android:id="@+id/recyclerViewBooks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textTitle"
