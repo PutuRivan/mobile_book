@@ -3,6 +3,8 @@ package com.example.book.network;
 import com.example.book.model.Book;
 import com.example.book.model.BookDetailResponse;
 import com.example.book.model.BookResponse;
+import com.example.book.model.FavoriteRequest;
+import com.example.book.model.FavoriteResponse;
 import com.example.book.model.LoginRequest;
 import com.example.book.model.LoginResponse;
 import com.example.book.model.RegisterRequest;
@@ -25,6 +27,9 @@ public interface ApiService {
 
     @GET("book/search")
     Call<BookResponse> searchBooks(@Query("q") String query);
+
+    @POST("book/favorite")
+    Call<FavoriteResponse> addToFavorite(@Body FavoriteRequest request);
 
     @POST("/auth/register")
     Call<RegisterResponse> registerUser(@Body RegisterRequest request);

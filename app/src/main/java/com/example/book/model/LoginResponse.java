@@ -18,8 +18,13 @@ public class LoginResponse {
     }
 
     public class Data {
+        private String id;
         private String username;
         private String email;
+
+        public String getId() {
+            return id;
+        }
 
         public String getUsername() {
             return username;
