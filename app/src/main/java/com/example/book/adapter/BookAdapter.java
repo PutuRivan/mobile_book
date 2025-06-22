@@ -56,7 +56,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(BookViewHolder holder, int position) {
         Book book = bookList.get(position);
         holder.bookTitle.setText(book.getTitle());
-        holder.bookAuthor.setText(book.getAuthors().get(0));
+        holder.bookAuthor.setText(book.getAuthors());
         Glide.with(context)
                 .load(book.getThumbnail())
                 .placeholder(R.drawable.ic_launcher_background)

@@ -69,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("userId", loginResponse.getData().getId());
+                    editor.putString("username", loginResponse.getData().getUsername());
+                    editor.putString("email", loginResponse.getData().getEmail());
                     editor.apply();
 
                     // Pindah ke Home

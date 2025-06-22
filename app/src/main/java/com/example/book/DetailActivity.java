@@ -80,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     currentBook = response.body().getBook();
                     title.setText(currentBook.getTitle());
-                    author.setText(currentBook.getAuthors().get(0));
+                    author.setText(currentBook.getAuthors());
                     description.setText(currentBook.getDescription());
                     Glide.with(DetailActivity.this)
                             .load(currentBook.getThumbnail())
@@ -103,7 +103,7 @@ public class DetailActivity extends AppCompatActivity {
                 userId,
                 book.getId(),
                 book.getTitle(),
-                book.getAuthors().get(0),
+                book.getAuthors(),
                 book.getThumbnail(),
                 book.getDescription()
         );

@@ -22,7 +22,6 @@ public interface ApiService {
     Call<BookResponse> getBooks();
 
     @GET("book/{id}")
-        // Contoh: /book/UGUahZnpa0MC
     Call<BookDetailResponse> getBookDetail(@Path("id") String bookId);
 
     @GET("book/search")
@@ -30,6 +29,9 @@ public interface ApiService {
 
     @POST("book/favorite")
     Call<FavoriteResponse> addToFavorite(@Body FavoriteRequest request);
+
+    @GET("/book/favorite/{userId}")
+    Call<FavoriteResponse> getFavoriteBooks(@Path("userId") String userId);
 
     @POST("/auth/register")
     Call<RegisterResponse> registerUser(@Body RegisterRequest request);
