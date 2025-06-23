@@ -8,6 +8,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Tombol Back -->
         <Button
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
@@ -15,38 +16,106 @@
             android:drawableLeft="@drawable/baseline_arrow_back_ios_24"
             android:text="Back" />
 
+        <!-- Gambar Buku -->
         <ImageView
             android:id="@+id/detailThumbnail"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp" />
 
+        <!-- Judul Buku -->
         <TextView
             android:id="@+id/detailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
+        <!-- Penulis -->
         <TextView
             android:id="@+id/detailAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="#555555" />
 
+        <!-- Deskripsi -->
         <TextView
             android:id="@+id/detailDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:textSize="14sp" />
 
+        <!-- Tombol Favorite -->
         <Button
             android:id="@+id/btn_favorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="Add To Favorite" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="#CCCCCC" />
+
+        <!-- Label Review -->
+        <TextView
+            android:id="@+id/tv_review_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Reviews"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- List Review (RecyclerView) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviewRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="#CCCCCC" />
+
+        <!-- Tambahkan Review -->
+        <TextView
+            android:id="@+id/tv_add_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Your Review"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/et_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write your review here..."
+            android:background="@drawable/edittext_background"
+            android:padding="8dp"
+            android:minHeight="100dp"
+            android:gravity="top|start"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_submit_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Review"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </ScrollView>

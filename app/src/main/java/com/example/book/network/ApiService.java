@@ -12,6 +12,7 @@ import com.example.book.model.RegisterResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -33,9 +34,13 @@ public interface ApiService {
     @GET("/book/favorite/{userId}")
     Call<FavoriteResponse> getFavoriteBooks(@Path("userId") String userId);
 
+    @DELETE("book/favorite/{userId}/{bookId}")
+    Call<Void> deleteFavoriteBook(@Path("userId") String userId, @Path("bookId") String bookId);
+
     @POST("/auth/register")
     Call<RegisterResponse> registerUser(@Body RegisterRequest request);
 
     @POST("/auth/login")
     Call<LoginResponse> loginUser(@Body LoginRequest request);
+
 }
