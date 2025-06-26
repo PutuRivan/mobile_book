@@ -7,36 +7,25 @@
     android:background="#7BC6C8"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- Header -->
-    <LinearLayout
-        android:id="@+id/headerLayout"
+    <!-- Search Bar -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewBooks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end|center_vertical"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/btnUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#A4D787"
-            android:drawableRight="@drawable/baseline_person_24"
-            android:drawablePadding="8dp"
-            android:padding="8dp"
-            android:text="User"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_edittext"
+        android:iconifiedByDefault="false"
+        android:queryHint="Cari Buku..." />
 
     <!-- Judul Halaman -->
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/headerLayout"
+        android:layout_below="@id/searchViewBooks"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:text="Daftar Buku"
+        android:text="Popular Book"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -44,7 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewBooks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/textTitle"
         android:clipToPadding="false"
         android:padding="16dp"

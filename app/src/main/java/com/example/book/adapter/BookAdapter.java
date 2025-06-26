@@ -1,7 +1,6 @@
 package com.example.book.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.book.DetailActivity;
-import com.example.book.R;
 import com.bumptech.glide.Glide;
+import com.example.book.R;
 import com.example.book.model.Book;
 
 import java.util.List;
@@ -20,9 +18,15 @@ import java.util.List;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
     private Context context;
     private List<Book> bookList;
+    private OnItemClickListener listener;
 
-    public BookAdapter(Context context) {
+    public interface OnItemClickListener {
+        void onItemClick(Book book);
+    }
+
+    public BookAdapter(Context context, OnItemClickListener listener) {
         this.context = context;
+        this.listener = listener;
     }
 
     public void setBookList(List<Book> bookList) {
@@ -52,19 +56,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(BookViewHolder holder, int position) {
         Book book = bookList.get(position);
         holder.bookTitle.setText(book.getTitle());
-        holder.bookAuthor.setText(book.getAuthors().get(0)); // Ambil author pertama
+        holder.bookAuthor.setText(book.getAuthors());
         Glide.with(context)
                 .load(book.getThumbnail())
-                .placeholder(R.drawable.ic_launcher_background) // Gambar placeholder opsional
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.thumbnail);
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra("title", book.getTitle());
-            intent.putExtra("author", book.getAuthors().get(0)); // ambil author pertama
-            intent.putExtra("thumbnail", book.getThumbnail());
-            intent.putExtra("description", book.getDescription());
-            context.startActivity(intent);
+            if (listener != null) {
+                listener.onItemClick(book);
+            }
         });
     }
 

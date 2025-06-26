@@ -5,7 +5,7 @@ import java.util.List;
 public class Book {
     private String id;
     private String title;
-    private List<String> authors;
+    private String authors;
     private String thumbnail;
     private String description;
     private List<String> genre;
@@ -19,7 +19,7 @@ public class Book {
         return title;
     }
 
-    public List<String> getAuthors() {
+    public String getAuthors() {
         return authors;
     }
 
